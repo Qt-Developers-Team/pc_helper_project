@@ -27,7 +27,7 @@ protected:
     }
 
 public:
-    QDirModel *model;
+    QFileSystemModel *model;
 
     QWidget *pCenterWidget;
 
@@ -44,8 +44,8 @@ public:
     QTabWidget *pTabWidget;
 
 
-    QTreeWidget *pArticleTree;
-    //QTreeView   *pArticleTreeView;
+    //QTreeWidget *pArticleTree;
+    QTreeView   *pArticleTreeView;
     //QTreeView   *pAdviceTreeView;
 
     QTableView  *pTableView;
@@ -57,8 +57,9 @@ public:
 public:
     MyWidget(QWidget *parent = 0);
 private slots:
-    void openLink(QUrl);
-    void openTreeLink(QTreeWidgetItem*);
+    //void openLink(QUrl);
+    //void openTreeLink(QTreeWidgetItem*);
+    void getHTML(QModelIndex);
 };
 
 #endif // MYWIDGET_H

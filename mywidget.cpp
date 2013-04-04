@@ -4,8 +4,9 @@ MyWidget::MyWidget(QWidget *parent)
     : QWidget(parent)
 {
     // create widgets
+    model = new QFileSystemModel;
 
-    model = new QDirModel;
+    model->setRootPath(QDir::currentPath());
 
     pCenterWidget = new QWidget;
     pTableView = new QTableView;
@@ -23,16 +24,15 @@ MyWidget::MyWidget(QWidget *parent)
 
     pTabWidget = new QTabWidget;
 
-    pArticleTree = new QTreeWidget;
-    //pArticleTreeView = new QTreeView;
+    //pArticleTree = new QTreeWidget;
+    pArticleTreeView = new QTreeView;
     //pAdviceTreeView = new QTreeView;
 
     //test HTML
     pHTMLFile = new QWebView;
-    pHTMLFile->load(QUrl("РС.html"));
-    //pHTMLFile->load(QUrl("http://google.ru"));
-    pHTMLFile->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
-    connect(pHTMLFile, SIGNAL(linkClicked(QUrl)), this, SLOT(openLink(QUrl)));
+//    pHTMLFile->load(QUrl("PC.html"));
+//    pHTMLFile->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
+//    connect(pHTMLFile, SIGNAL(linkClicked(QUrl)), this, SLOT(openLink(QUrl)));
 
 
     pInfoLabel = new QLabel("PC-Helper v. 1.0 by Ayrat, RoK & Diego ");
@@ -40,11 +40,10 @@ MyWidget::MyWidget(QWidget *parent)
 
     // tree filling
 
-    pArticleTree->setSortingEnabled(false);
+  /*  pArticleTree->setSortingEnabled(false);
     pArticleTree->setHeaderItem(NULL);
     QTreeWidgetItem *treeItem = new QTreeWidgetItem(pArticleTree);
     treeItem->setChildIndicatorPolicy(QTreeWidgetItem::ShowIndicator);
-
     treeItem->setText(0, "Виды компьютеров");
     QTreeWidgetItem *treeItemDir = 0;
     for (int i = 1; i<4; ++i){
@@ -66,21 +65,22 @@ MyWidget::MyWidget(QWidget *parent)
         treeItemDir = new QTreeWidgetItem(treeItem);
         treeItemDir->setText(0, "Материнская плата");
 //    }
-    pArticleTree->setItemExpanded(treeItem, false);
+    pArticleTree->setItemExpanded(treeItem, false);*/
     // setup model
 
-   // pArticleTreeView->setModel(model);
+    pArticleTreeView->setModel(model);
+    pArticleTreeView->setRootIndex(model->index(QDir::currentPath()+ "/data/articles"));
    // pAdviceTreeView->setModel(model);
    // pTableView->setModel(model);
     
     // connection setup
-     connect(this->pArticleTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
-             this, SLOT(openTreeLink(QTreeWidgetItem*)));
+     //connect(this->pArticleTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
+     //        this, SLOT(openTreeLink(QTreeWidgetItem*)));
 
 
-//    connect(pArticleTreeView, SIGNAL(clicked(const QModelIndex&)),
-//            pTableView, SLOT(setRootIndex(const QModelIndex&))
-//            );
+    connect(this->pArticleTreeView, SIGNAL(clicked(QModelIndex)),
+            this, SLOT(getHTML(QModelIndex))
+            );
 //
 //    connect(pTableView, SIGNAL(activated(const QModelIndex&)),
 //            pArticleTreeView, SLOT(setCurrentIndex(const QModelIndex&))
@@ -91,11 +91,6 @@ MyWidget::MyWidget(QWidget *parent)
 //            );
 
 
-    pTabWidget->addTab(pArticleTree, "Articles");
-    //pTabWidget->addTab(pArticleTree, "Advices");
-    //pTabWidget->addTab(pAdviceTree, "Advices");
-    pTabWidget->setMinimumWidth(200);
-
 
     // Layout setup
 
@@ -104,6 +99,12 @@ MyWidget::MyWidget(QWidget *parent)
     QHBoxLayout *InfoLayout = new QHBoxLayout;
     QVBoxLayout *MainLayout = new QVBoxLayout;
     QHBoxLayout *MainButtonsLayout = new QHBoxLayout;
+
+    pTabWidget->addTab(pArticleTreeView, "Articles");
+    //pTabWidget->addTab(pArticleTree, "Advices");
+    //pTabWidget->addTab(pAdviceTree, "Advices");
+    pTabWidget->setMinimumWidth(200);
+
 
     MainButtonsLayout->addWidget(pButtonPrevious);
     MainButtonsLayout->addStretch(1);
@@ -137,14 +138,26 @@ MyWidget::MyWidget(QWidget *parent)
 
 }
 
-void MyWidget::openLink(QUrl link){
-    pHTMLFile->load(link);
-}
-void MyWidget::openTreeLink(QTreeWidgetItem *twi){
-    QString name = twi->text(0)+".html";
-    QFile *file = new QFile(name);
-    if (file->exists()){
-        pHTMLFile->load(QUrl(name));
-    }
+//void MyWidget::openLink(QUrl link){
+//    pHTMLFile->load(link);
+//}
+//void MyWidget::openTreeLink(QTreeWidgetItem *twi){
+//    QString name = twi->text(0)+".html";
+//    QFile *file = new QFile(name);
+//    if (file->exists()){
+//        pHTMLFile->load(QUrl(name));
+//    }
+//}
 
+void MyWidget::getHTML(QModelIndex mi){
+    bool isDir = model->isDir(mi);
+    if (!isDir){
+        QString *HTMLName = new QString(model->filePath(mi));
+        //pInfoLabel->setText(model->data(mi, Qt::DisplayRole).toString());
+        //pInfoLabel->setText(model->filePath(mi));
+        QFile *file = new QFile(*HTMLName);
+        if (file->exists()){
+            pHTMLFile->load(QUrl(*HTMLName));
+        }
+    }
 }
