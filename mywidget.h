@@ -44,9 +44,8 @@ public:
     QTabWidget *pTabWidget;
 
 
-    //QTreeWidget *pArticleTree;
     QTreeView   *pArticleTreeView;
-    //QTreeView   *pAdviceTreeView;
+    QTreeView   *pAdviceTreeView;
 
     QTableView  *pTableView;
 

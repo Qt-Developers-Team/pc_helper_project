@@ -10,5 +10,6 @@ int main(int argc, char *argv[])
     w.setMinimumSize(800,600);
     w.setWindowTitle("PC Helper ver. 1.0");
     w.show();
+    w.setSizeIncrement(15, 15);
     return a.exec();
 }

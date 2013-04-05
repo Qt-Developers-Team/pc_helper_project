@@ -5,7 +5,6 @@ MyWidget::MyWidget(QWidget *parent)
 {
     // create widgets
     model = new QFileSystemModel;
-
     model->setRootPath(QDir::currentPath());
 
     pCenterWidget = new QWidget;
@@ -24,17 +23,12 @@ MyWidget::MyWidget(QWidget *parent)
 
     pTabWidget = new QTabWidget;
 
-    //pArticleTree = new QTreeWidget;
     pArticleTreeView = new QTreeView;
-    //pAdviceTreeView = new QTreeView;
+    pAdviceTreeView = new QTreeView;
 
-    //test HTML
     pHTMLFile = new QWebView;
-//    pHTMLFile->load(QUrl("PC.html"));
-//    pHTMLFile->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
-//    connect(pHTMLFile, SIGNAL(linkClicked(QUrl)), this, SLOT(openLink(QUrl)));
-
-
+    pHTMLFile->resize(300, 200);
+    //QSize temp = pHTMLFile->size();
     pInfoLabel = new QLabel("PC-Helper v. 1.0 by Ayrat, RoK & Diego ");
 
 
@@ -66,11 +60,23 @@ MyWidget::MyWidget(QWidget *parent)
         treeItemDir->setText(0, "Материнская плата");
 //    }
     pArticleTree->setItemExpanded(treeItem, false);*/
+
     // setup model
 
     pArticleTreeView->setModel(model);
     pArticleTreeView->setRootIndex(model->index(QDir::currentPath()+ "/data/articles"));
-   // pAdviceTreeView->setModel(model);
+    pArticleTreeView->header()->setVisible(false);
+    pArticleTreeView->setColumnHidden(1, true);
+    pArticleTreeView->setColumnHidden(2, true);
+    pArticleTreeView->setColumnHidden(3, true);
+
+    pAdviceTreeView->setModel(model);
+    pAdviceTreeView->setRootIndex(model->index(QDir::currentPath()+ "/data/advices"));
+    pAdviceTreeView->header()->setVisible(false);
+    pAdviceTreeView->setColumnHidden(1, true);
+    pAdviceTreeView->setColumnHidden(2, true);
+    pAdviceTreeView->setColumnHidden(3, true);
+
    // pTableView->setModel(model);
     
     // connection setup
@@ -78,18 +84,13 @@ MyWidget::MyWidget(QWidget *parent)
      //        this, SLOT(openTreeLink(QTreeWidgetItem*)));
 
 
-    connect(this->pArticleTreeView, SIGNAL(clicked(QModelIndex)),
+    connect(this->pArticleTreeView, SIGNAL(pressed(QModelIndex)),
             this, SLOT(getHTML(QModelIndex))
             );
-//
-//    connect(pTableView, SIGNAL(activated(const QModelIndex&)),
-//            pArticleTreeView, SLOT(setCurrentIndex(const QModelIndex&))
-//            );
-//
-//    connect(pTableView, SIGNAL(activated(const QModelIndex&)),
-//            pTableView, SLOT(setRootIndex(const QModelIndex&))
-//            );
-
+    connect(this->pAdviceTreeView, SIGNAL(pressed(QModelIndex)),
+            this, SLOT(getHTML(QModelIndex))
+            );
+    //connect(this, SIGNAL(
 
 
     // Layout setup
@@ -101,10 +102,10 @@ MyWidget::MyWidget(QWidget *parent)
     QHBoxLayout *MainButtonsLayout = new QHBoxLayout;
 
     pTabWidget->addTab(pArticleTreeView, "Articles");
-    //pTabWidget->addTab(pArticleTree, "Advices");
-    //pTabWidget->addTab(pAdviceTree, "Advices");
-    pTabWidget->setMinimumWidth(200);
-
+    pTabWidget->addTab(pAdviceTreeView, "Advices");
+    //pTabWidget->setMinimumWidth(200);
+    pTabWidget->setMinimumWidth(0.25*this->width());
+    pTabWidget->setMaximumWidth(0.4*this->width());
 
     MainButtonsLayout->addWidget(pButtonPrevious);
     MainButtonsLayout->addStretch(1);
@@ -156,7 +157,7 @@ void MyWidget::getHTML(QModelIndex mi){
         //pInfoLabel->setText(model->data(mi, Qt::DisplayRole).toString());
         //pInfoLabel->setText(model->filePath(mi));
         QFile *file = new QFile(*HTMLName);
-        if (file->exists()){
+        if (file->exists()){            
             pHTMLFile->load(QUrl(*HTMLName));
         }
     }

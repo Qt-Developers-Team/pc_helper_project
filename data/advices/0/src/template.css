@@ -1,0 +1,868 @@
+@charset "utf-8";
+
+a {
+	color: #2973AB;
+	text-decoration:none}
+
+a:hover {
+	text-decoration:underline;
+}
+	
+ul, li, body, div, ul, ol, table, td, tr, span, b, u, i, strong, em, p, img  {
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul {
+	list-style-position: inside;
+}
+
+img {
+	vertical-align: middle;
+	border: 0;
+}
+
+input {
+	vertical-align: baseline;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: #e7e7e7;
+	font-family: Verdana;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 140%;
+	position: relative;
+}
+
+div#site {
+	position: relative;
+	min-width: 1000px;
+	width: 86%;
+	padding: 0 7%;
+	margin: 0;
+	min-height: 100%;
+	height: auto !important;
+	border: 0;
+}
+
+div#header {
+	position: relative;
+	height: 74px;
+}
+
+div#header a#ll {
+	display: block;
+	width: 258px;
+	height: 46px;
+	position: absolute;
+	top: 16px;
+	left: 6px;
+	background: url('/forum/images/logo.png') 0 0 no-repeat;
+}
+
+div#lf {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #aaa;
+	border-bottom: 1px solid #f5f5f5;
+	border-radius: 0 0 8px 8px;
+}
+
+div#lf_shadow {
+	border: 1px solid #777;
+	border-top: 0;
+	border-radius: 0 0 8px 8px;
+	height: 24px;
+	padding: 4px 0 4px 6px;
+	color: #fff;
+	box-shadow: inset rgba(0, 0, 0, 0.1) 0px 0px 3px;
+}
+
+#lf_shadow form {
+	display: block;
+	float: left;
+}
+
+#lf_shadow a, #lf_shadow span {
+	display: block;
+	float:left;
+	margin: 0 5px 0 0;
+	padding: 1px 6px;
+	background: #ADADAD url("/forum/images/gray_grad.png") 0 50% repeat-x;
+	border: 1px solid #777;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+	text-shadow: 0px 1px 0px #7D7D7D;
+	border-radius: 8px;
+	font-size: 13px;
+	font-family: Verdana;
+	font-weight: bold;
+	line-height: 145%;
+	color: #f9f9f9;
+	cursor: pointer;
+}
+
+#lf_shadow input {
+	display: block;
+	float: left;
+	margin: 0 6px 0 0;
+	padding: 1px 5px;
+	height: 19px;
+	border-color: #777;
+	line-height: 140%;
+	box-shadow: inset rgba(0, 0, 0, 0.3) 0px 0px 3px;
+}
+
+#lf_shadow span {
+	margin-right: 0;
+	border-radius: 8px 0 0 8px;
+	border-right: none;
+}
+
+#lf_shadow a.l {
+	background: #7F9B30 url('/forum/images/green_grad.png') 0 50% repeat-x;
+	border-color: #6B871D;
+	border-radius: 0 8px 8px 0;
+	color: #FAFEF1;
+	text-shadow: 0px 1px 0px #607D0F;
+	margin-left: 0;
+}
+
+#lf_shadow a:hover {
+	background-position: 0 100%;
+	text-decoration: none;
+	color: #FFF;
+}
+
+div#navigation {
+	position:relative;
+	height: 37px;
+	background: #4082B4 url('/forum/images/menu_bg.png') 0 0 repeat-x;
+	border: 1px solid #205780;
+	border-radius: 11px 11px 0 0;
+	border-bottom: 1px solid #677E26;
+}
+
+div#navigation ul.menu {
+	position:absolute;
+	top:3px;
+	left:3px;
+	height:33px;
+	width: 100%;
+	z-index: 20;
+}
+
+ul.menu li {
+	display: block;
+	float: left;
+	height: 31px;
+	cursor: pointer;
+}
+
+ul.menu li:hover {
+	background: url('/forum/images/menu_bg_hover.png') 0 0 repeat-x;
+}
+
+ul.menu li.active, ul.menu li:hover {
+	background: #94b142 url('/forum/images/menu_bg_active.png') 0 0 repeat-x;
+	border: 1px solid #296390;
+	border-radius: 8px 8px 0 0;
+	border-bottom: 0;
+}
+
+ul.menu li a {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: Tahoma, Arial;
+	line-height: 150%;
+	color: #c3dbe5;
+	padding: 5px 21px 0 21px;
+	text-shadow: 0px 1px 0px #225882;
+}
+
+ul.menu li.active a, ul.menu li:hover a {
+	padding: 4px 20px 0 20px;
+	text-decoration: none;
+	color: #fff;
+	text-shadow: 0px 1px 0px #7D9833;
+}
+
+
+ul.menu li.active ul, div#sitemap {
+	display:block;
+	position:absolute;
+	top: 34px;
+	left: -4px;
+	height: 24px;
+	background: #97b349 url('/forum/images/green_grad.png') 0 100% repeat-x;
+	border: 1px solid #677E26;
+	border-top: 0;
+	border-radius: 0 0 8px 8px;
+	padding: 4px 0 4px 6px;
+	z-index: 10;
+}
+
+ul.menu li.active ul li {
+	display: block;
+	float: left;
+	margin: 0px 6px 0px 0px;
+}
+
+ul.menu li ul li, ul.menu li:hover ul li, ul.menu li.parent ul li.active, div#sitemap a {
+	display: block;
+	height: 21px;
+	background: #87A33B url('/forum/images/green_grad.png') 0 60% repeat-x;
+	box-shadow: inset rgba(255, 255, 255, 0.1) 0px 0px 2px;
+	border: 1px solid #728D29;
+	border-radius: 6px;
+}
+
+ul.menu li ul li:hover, div#sitemap a:hover, ul.menu li.parent ul li.active {
+	background: #728d27;
+	border: 1px solid #60781e;
+	box-shadow: inset rgba(0, 0, 0, 0.15) 0px 0px 3px;
+	text-decoration: none;
+}
+
+
+ul.menu li.active ul li a, div#sitemap a {
+	display: block;
+	padding: 1px 7px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #F1F7DF;
+	cursor: pointer;
+	text-shadow: 0px 1px 0px #729415;
+}
+
+div#sitemap a {
+	height: 19px;
+	line-height: 160%;
+}
+
+#search_site input#search_button, #search_site input#search_word {
+	display: block;
+	position:absolute;
+	top: 10px;
+	right: 10px;
+	border: 0;
+	background: transparent url('/forum/images/search.png') 0 0 no-repeat;
+	width: 14px;
+	height: 14px;
+	color: #e7eff6;
+	font-size: 13px;
+	z-index: 30;
+}
+
+#search_site input#search_word {
+	top: 5px;
+	right: 5px;
+	height: 20px;
+	width: 200px;
+	border: 1px solid #245880;
+	border-radius: 8px;
+	padding: 1px 6px;
+	background: #F7F9FA;
+	color: #133752;
+	line-height: 150%;
+	box-shadow: inset rgba(0, 0, 0, 0.4) 0px 0px 3px;
+}
+
+div#sitemap {
+	position: absolute;
+	left:auto;
+	right: -1px;
+	top: 37px;
+	padding: 5px 7px 4px 7px;
+}
+
+div#content {
+	padding: 49px 0 40px 238px;
+	position: relative;
+}
+
+div#left_block { 
+	float: left;
+	margin-bottom: 10px;
+	margin-left: -238px;
+	width: 100%;
+}
+
+div#right_block {
+	float: right;
+	width: 223px;
+}
+
+div.clear {
+	clear:both;
+}
+
+div#footer {
+	width: 86%;
+	margin: 0 7%;
+	position: absolute;
+	bottom: 0;
+	background:#2d77af url('/forum/images/menu_bg.png') 0 0 repeat-x;
+	border: 1px solid #2173a2;
+	border-radius: 11px 11px 0 0;
+	height:34px;
+	left:0;
+	right: 0;
+	border: 1px solid #296390;}
+
+
+div#footer #li {
+	position:absolute;
+	top:1px;
+	right:10px}
+
+div#footer #links {
+	position: absolute;
+	top: 6px;
+	left: 6px;
+}
+
+#footer #links a, div.header_links a {
+	display: block;
+	float:left;
+	color: #F0F6FA;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: Verdana;
+	line-height: 18px;
+	margin-right: 6px;
+	padding: 2px 6px 1px 6px;
+	border: 1px solid #346F9C;
+	border-radius: 8px;
+	background: #2F77AD url('/forum/images/blue_grad.png') 0 40% repeat-x;
+	text-shadow: 0 1px 0 #235A83;
+}
+
+#footer #links a:hover, div.header_links a:hover {
+	background: #2F77AD url('/forum/images/blue_grad.png') 0 100% repeat-x;
+	border: 1px solid #2D6691;
+	text-decoration: none;
+	color: #fff;
+}
+
+input.textbox {
+	border: 1px solid #B7CFE1;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: inset rgba(0, 0, 0, 0.1) 0px 0px 3px;
+	font-size: 13px;
+	font-family: Verdana;
+	line-height: 120%;
+	padding: 2px 6px;
+}
+
+div.article_block {
+	position: relative;
+	clear: both;
+	width: 100%;
+	background:#fff;
+	border:1px solid #bbb;
+	border-radius: 11px;
+	margin-bottom: 15px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+	overflow: hidden;
+}
+	
+div.article_buttons {
+	position:absolute;
+	top:3px;
+	right:12px}
+	
+div.article_buttons img {
+	margin-left:10px}
+	
+div.pageinfo {
+	position:absolute;
+	right: -1px;
+	top: -1px;
+	color: #617A2F;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 145%;
+	text-shadow: 0px 1px 0px #FEFFFA;
+	padding: 7px 11px;
+	border: 1px solid #A5BA6C;
+	border-radius: 0 11px 0 11px;
+	background: #fdfff7 url(/forum/images/white_green_grad.png) 0 0 repeat-x;
+}
+
+div.pageinfo span a {
+	color:#6A8B0D}
+
+div.pageinfo a {
+	color:#7E914A}
+	
+div.article_info {
+	clear:both;
+	color:#35536A;
+	text-shadow: 0px 1px 0px #FAFDFF;
+	border-top:1px solid #C2D1DD;
+	padding:5px 12px;
+	line-height: 150%;
+	background: #EDF4FA url(/forum/images/light_blue_grad.png) 0 20% repeat-x;
+	border-radius: 0 0 11px 11px;
+}
+
+div.article_info span {
+	padding-right:8px;
+	margin-right:4px;
+	border-right:1px solid #B2C2D2}
+
+div.article_more {
+	border-radius: 11px;
+}
+	
+.article_more div.article_next, .article_more_related div.article_next {
+	font-size: 14px;
+	font-family: Tahoma;
+	font-weight: bold;
+	line-height: 150%;
+	margin: 0;
+	padding: 6px 12px;
+	color: #647F2D;
+	background: #fdfff7 url(/forum/images/white_green_grad.png) 0 0 repeat-x;
+	border: 1px solid #A5BA6C;
+	border-radius: 11px 11px 0 0;
+}
+	
+div.article_more, div.article_more_related  {
+	margin: 0;
+	padding: 0;
+	width:100%;
+	position:relative;
+	box-shadow: rgba(0, 0, 0, 0.102) 0px 0px 3px;}
+	
+ul.article_more_list {
+	display:block;
+	list-style-position:outside;
+	padding:8px 24px;
+	color:#136;
+	border: 1px solid #bbb;
+	border-radius: 0 0 11px 11px;
+	background: #fff;
+	border-top: none;
+}
+
+.article_more_related  li {
+	border-bottom: 1px dashed #94b142;
+	margin-bottom: 8px;
+	padding-bottom: 0;
+}
+
+ul.article_more_list li {
+	padding-bottom: 7px;
+	list-style-type:disc;
+	color:#759911;
+	font-size:14px;
+}
+	
+ul.article_more_list li:last-child {
+	border-bottom:none;
+	padding-bottom:0;
+	margin-bottom: 0;}
+	
+ul.article_more_list li p {
+	color: #222;
+	font-family: verdana;
+	font-size: 13px;
+	line-height: 140%;
+	margin-top: 6px;
+	padding-bottom: 3px;}
+
+div.counter {
+	position:relative;
+	width:100%;
+	text-align:center;
+	color:#666;
+	text-shadow: 0px 1px 0px #FCFCFC;
+	margin-bottom: 15px;
+	clear:both}
+
+ul.pagination {
+	display: inline;
+}
+	
+ul.pagination li {
+	display:inline;
+	margin: 0 3px;}
+
+.pagination li a, .pagination li span {
+	padding: 1px 5px 2px 5px;
+	background: #BDBDBD url('/forum/images/gray_grad.png') 0 10% repeat-x;
+	border: 1px solid #878787;
+	border-radius: 8px;
+	color: #fff;
+	line-height: 150%;
+	font-size: 13px;
+	text-shadow: 0px 1px 0px #8F8F8F;
+}
+
+.pagination li span, .pagination li a:hover {
+	background: url("/forum/images/green_grad.png") 0px 50% repeat-x #87A633;
+	border: 1px solid #6B871D;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #5A7511;
+}
+
+div.right_block_item {
+	position:relative;
+	float:none;
+	margin:0 0 16px 0;
+	width:100%;
+	border-radius: 11px;
+	box-shadow: rgba(0, 0, 0, 0.102) 0px 0px 3px;
+}
+
+div.right_block_item img {
+	margin-left:3px;
+	vertical-align:middle}
+
+div#right_block .right_block_item strong {
+	display:block;
+	color:#2a5678;
+	font-size: 14px;
+	font-family: Tahoma;
+	line-height: 160%;
+	height: 21px;
+	vertical-align: baseline;
+	text-shadow: 0px 1px 0px #FAFDFF;
+	padding:6px 6px 6px 12px;
+	border:1px solid #AAC2D5;
+	border-radius: 11px 11px 0 0;
+	background: #EDF4FA url(/forum/images/light_blue_grad.png) 0 0 repeat-x;
+}
+
+ul.latestnews {
+	display:block;
+	padding:4px 7px 4px 18px;
+	border:1px solid #bbb;
+	border-top: none;
+	border-radius: 0 0 11px 11px;
+	background: #fff;
+}
+	
+ul.latestnews li {
+	margin:0;
+	margin-left:4px;
+	padding:4px 0;
+	border-bottom:1px solid #ddd;
+	list-style-type:disc;
+	list-style-position:outside;
+	color:#94b142;
+	font-size:12px;}
+	
+ul.latestnews li:last-child {
+	border-bottom:none}
+
+ul.latestnews li a, ul.latestnews li b {
+	font-size:12px;
+	margin-left:-1px;}
+	
+.article_header h1, h1.article_name, .article_header h2, h2.article_name, div.componentheading {
+	background: #FDFFF7 url('/forum/images/light_blue_grad.png') 0 0 repeat-x;
+	border: 1px solid #B2C6D5;
+	border-radius: 11px 0 11px 0;
+	padding: 5px 11px;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	height: 23px;
+	text-shadow: 0px 1px 0px #FCFEFF}
+
+.article_header:hover h2, h2.article_name:hover {
+	background-position: 0 100%;
+	cursor: pointer;
+}
+	
+.article_header h1, .article_header h1 a, .article_header h2, .article_header h2 a, h1.article_name, h2.article_name, h2.article_name a, h1.article_name a, div.article_next, div#right_block strong, div.componentheading {
+	font-size:15px;
+	font-family: Tahoma;
+	font-weight: bold;
+	line-height: 160%;
+	color:#194465;
+	margin:0;
+	text-decoration: none;
+}
+	
+div.article_content {
+	color:#111;
+	padding:49px 12px 8px 12px;
+	font-family: Verdana;
+	font-size:13px;
+	line-height:145%;
+	text-indent:1em;
+	text-align:left;
+	overflow:visible;
+	vertical-align:middle}
+		
+div.article_content p {
+	margin:12px 0}
+	
+div.article_content p.driver, div.article_content ol.driver {
+	text-indent:0;
+	margin: 3px 14px;
+	font-size: 12px}
+
+div.article_content ol.driver {
+	list-style-position: inside;
+}
+	
+div.article_content img.frontpage {
+	float:left;
+	display:block;
+	margin:0 10px 10px 10px;
+	width:140px;}
+
+div.article_content img {
+	display:block;
+	margin:10px 15px;
+	max-width:720px;}
+
+div.article_content h1, div.article_content h2, div.article_content h3 {
+	margin: 24px 0 0 0;
+	color: #9A2626;
+	font-size: 17px;
+	font-weight:bold;
+	font-family: Tahoma;
+	display:block}
+
+div.article_content h2.driver {
+	border-top:1px solid #f00;
+	padding: 17px 0 0 0;
+	margin-top: 17px;
+	color:#B03636;
+	font-size: 16px}
+
+div.article_content h3.driver {
+	border-top: 1px dashed #94b142;
+	padding: 10px 0;
+	margin-top: 10px;
+	margin-left: 14px;
+	text-indent: 0;
+	color:#216496;
+}
+
+div.article_content h3 {
+	margin: 18px 0 -6px 0;
+	font-size: 15px;
+	color: #7A3B3B}
+	
+div.article_content ol, div.article_content ul {
+	margin:16px 34px;
+	padding:0;
+	list-style:decimal;
+	list-style-position:outside;
+	font-weight:normal;
+	font-size:14px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#111;
+	text-indent:0}
+	
+div.article_content ul {
+	list-style:none}
+
+div.article_content ol li, div.article_content ul li {
+	margin:3px 0;
+	color:#111}
+
+div.article_content hr {
+	color:#9eb55e}
+
+p.notice_important, p.notice_warning, p.notice_info, p.notice_contact, p.notice_forum {
+	padding:8px 12px;
+	text-indent:0;
+	color:#333;
+	border-radius: 11px;
+	box-shadow: inset rgba(0, 0, 0, 0.15) 0px 0px 3px;
+	vertical-align:middle}
+	
+p.notice_warning {
+	background: #FFF7F7;
+	border: 1px solid #DE9B95}
+
+p.notice_warning span {
+	font-weight:bold;
+	color:#c00}
+
+p.notice_important {
+	background: #FFFBF7;
+	border:1px solid #DCAB88;}
+
+p.notice_important span {
+	font-weight:bold;
+	color:#ca510b}
+
+p.notice_info, p.notice_forum {
+	background: #FAFDFF;
+	border:1px solid #87B0CE}
+
+p.notice_info span, p.notice_forum span {
+	font-weight:bold;
+	color:#25689A}
+
+div.article_content p.notice_contact {
+	border:1px solid #94ab53;
+	background: #FCFFF2;
+	margin-bottom: 4px;
+	margin-top:-2px}
+	
+div.xmap, div#com_search_page {
+	float:none;
+	position:relative;
+	margin-left:-238px;
+	border:1px solid #bbb;
+	background: #fff;
+	padding-top: 26px;
+	margin-bottom:10px;
+	border-radius: 11px;
+}
+	
+div.contentpaneopen {
+	padding:12px 16px}
+
+.xmap ul.level_0, .xmap ul.level_1, .xmap ul.level_2 {
+	font-size:16px;
+	list-style-type:disc;
+	list-style-position:inside;
+	line-height:130%}
+
+a.xmapexcl, a.xmapexcloff {
+	margin-left:10px}
+
+ul.level_0 li {
+	color:#9C1C1C;
+	font-weight:bold;
+	margin:10px;}
+
+ul.level_1 li {
+	color:#369BE7;
+	margin:10px 0 10px 25px}
+
+ul.level_2 li {
+	font-weight:normal;
+	margin:5px 0 5px 40px;
+	color:#391}
+
+ul.level_0 li a:hover, ul.level_1 li a:hover, ul.level_2 li a:hover {
+	text-decoration:underline}
+
+div#search_page {
+	padding:12px}
+	
+h1.article_name span {
+	font-weight:normal;
+	font-size:14px}
+	
+h1.article_name strong, span.highlight {
+	color:#900}
+
+ul.search_list {
+	display:block;
+	margin-bottom:12px}
+	
+ul.search_list li {
+	display:block;
+	border-bottom:1px solid #8fa74f;
+	margin-bottom:16px;
+	padding-bottom:5px}
+
+ul.search_list li h3 {
+	font-size:15px;
+	margin-left:1em}
+	
+ul.search_list li p {
+	text-indent:1em;
+	font-size:14px;
+	line-height:130%;
+	margin-bottom: 12px;}
+
+div#search_pagination {
+	text-align:center;
+	line-height:150%;
+	margin:5px}
+	
+fieldset#search_again {
+	display:block;
+	position:relative;
+	border:1px solid #7A9BB4;
+	border-radius: 11px;
+	font-size: 14px;
+	margin: 15px 0 0 0;
+	background: #FAFDFF;
+	box-shadow: inset rgba(0, 0, 0, 0.15) 0px 0px 3px;}
+	
+fieldset#search_again p {
+	clear:both;
+	padding: 5px}
+	
+h2.contentheading_error {
+	font-size:16px;
+	margin:10px 20px 20px 20px;
+	color:#900}
+	
+.red {
+	color:#700}
+	
+.green {
+	color:#070}
+	
+.blue {
+	color:#007}
+	
+.gray {
+	color:#777}
+	
+p.faq {
+	padding-bottom:5px;
+	margin-bottom:5px;
+	border-bottom:1px solid #ddd}
+
+body.contentpane div#left_block {
+	margin-top: 12px;
+}
+	
+body.contentpane div#left_block div.article_block {
+
+	margin-left: 245px;
+	
+}
+
+a#top {
+	display: block;
+	position: fixed;
+	bottom:0;
+	right:0;
+	border:1px solid #777;
+	border-bottom: 0;
+	border-right:0;
+	border-radius: 8px 0 0 0;
+	background: #aaa;
+	color: #fff;
+	font-weight: bold;
+	padding: 4px 8px;
+	box-shadow: inset rgba(0, 0, 0, 0.2) 0px 0px 3px;
+}
+
+a#top:hover {
+	text-decoration: none;
+	background: #999;
+}
+
+div.direct {
+	margin: -4px 10px 0 10px;
+}
+
+div.direct yatag.ya-partner__ads {
+	text-align: right !important;
+}
